@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+	<script src="https://www.google.com/recaptcha/api.js"></script>
+	<title>Cerrar sesión</title>
+
+</h:head>
+
+<h:body style="text-align:center">
+
+	<h:panelGroup rendered="#{!(loginBean.userType eq 'O' or loginBean.userType eq 'A' or loginBean.userType eq 'U')}">
+		<center>
+			<a href="../index.xhtml">Inicio</a>
+		</center>
+	</h:panelGroup>
+	
+	<h:panelGroup rendered="#{(loginBean.userType eq 'O' or loginBean.userType eq 'A' or loginBean.userType eq 'U')}">
+	<center>
+		<a href="../index.xhtml">
+			<h:graphicImage library="resources" name="Logo.png" style="height: 90px; width: 110px"/>
+		</a>
+	</center>
+
+	<center>
+		<h:form style="padding-top: 80px">
+			<p:panel header="¿Desea cerrar sesion?" style="width:420px">
+
+				<h:panelGrid columns="2" cellpadding="6">
+
+					<p:commandButton id="si" value="Si" action="#{loginBean.retornarInicio()}" actionListener="#{loginBean.cerrarSesion()}" 
+						style="background: green; color: white" />
+						
+					<p:commandButton id="no" value="No" action="/index.xhtml?faces-redirect=true"
+						style="background: red; color: white" />
+
+				</h:panelGrid>
+
+
+
+			</p:panel>
+		</h:form>
+	</center>
+	</h:panelGroup>
+
+</h:body>
+</html>

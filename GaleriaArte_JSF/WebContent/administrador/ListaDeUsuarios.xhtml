@@ -1,0 +1,526 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>﻿
+	<title>Usuarios</title>
+	<link rel="stylesheet"
+		href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+		integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+		crossorigin="anonymous" />
+
+	<Style>
+.button {
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	padding: 16px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	-webkit-transition-duration: 0.4s;
+	transition-duration: 0.4s;
+	cursor: pointer;
+	border-radius: 50px;
+	padding: 15px 40px;
+	position: relative;
+	bottom: 40px;
+}
+	
+.button1 {
+	background-color: #4CAF50;
+	color: black;
+	border: 2px solid #4CAF50;
+}
+
+.button1:hover {
+	background-color: #4CAF50;
+	color: white;
+
+}
+
+.button2 {
+	background-color: #4CAF50;
+	color: black;
+	border: 2px solid #4CAF50;
+}
+
+.button2:hover {
+	background-color: #4CAF50;
+	color: white;
+}
+	
+.dropbtn {
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	padding: 16px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	-webkit-transition-duration: 0.4s;
+	transition-duration: 0.4s;
+	cursor: pointer;
+	border-radius: 50px;
+	padding: 15px 40px;
+	position: relative;
+	bottom: 40px;
+}
+
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: lightgreen;
+	min-width: 200px;
+	z-index: 1;
+	border-radius: 25px;
+}
+
+.dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+}
+
+.dropdown-content a:hover {
+	background-color: white;
+	border-radius: 50px;
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+.dropdown:hover .dropbtn {
+	background-color: grey;
+}
+
+.footer-distributed{
+	background-color: #A8A8A8;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	width: 100%;
+	text-align: left;
+	font: bold 16px sans-serif;
+
+	padding: 20px 50px 5px 50px;
+	margin-top: 70px;
+}
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right{
+	display: inline-block;
+	vertical-align: top;
+}
+
+/* Footer left */
+
+.footer-distributed .footer-left{
+	width: 30%;
+}
+
+/* The company logo */
+
+.footer-distributed h3{
+	color:  #ffffff;
+	font: normal 36px 'Cookie', cursive;
+	margin-top: 25px;
+}
+
+.footer-distributed h3 span{
+	color:  #88FF00;
+}
+
+/* Footer links */
+
+.footer-distributed .footer-links{
+	color:  #ffffff;
+	margin: 20px 0 12px;
+	padding: 0;
+}
+
+.footer-distributed .footer-links a{
+	display:inline-block;
+	line-height: 1.8;
+	text-decoration: none;
+	color:  inherit;
+}
+
+.footer-distributed .footer-company-name{
+	color:  #8f9296;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0;
+}
+
+/* Footer Center */
+
+.footer-distributed .footer-center{
+	width: 40%;
+}
+
+.footer-distributed .footer-center i{
+	background-color:  #33383b;
+	color: #ffffff;
+	font-size: 25px;
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 42px;
+	margin: 10px 15px;
+	vertical-align: middle;
+}
+
+.footer-distributed .footer-center i.fa-envelope{
+	font-size: 17px;v
+	line-height: 38px;
+}
+
+.footer-distributed .footer-center p{
+	display: inline-block;
+	color: #ffffff;
+	vertical-align: middle;
+	margin:0;
+}
+
+.footer-distributed .footer-center p span{
+	display:block;
+	font-weight: normal;
+	font-size:14px;
+	line-height:2;
+}
+
+.footer-distributed .footer-center p a{
+	color:  #88FF00;
+	text-decoration: none;;
+}
+
+
+/* Footer Right */
+
+.footer-distributed .footer-right{
+	width: 28%;
+}
+
+.footer-distributed .footer-company-about{
+	line-height: 20px;
+	color:  #92999f;
+	font-size: 13px;
+	font-weight: normal;
+	margin: 0;
+}
+
+.footer-distributed .footer-company-about span{
+	display: block;
+	color:  #ffffff;
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.footer-distributed .footer-icons{
+	margin-top: 25px;
+}
+
+.footer-distributed .footer-icons a{
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+	background-color:  #33383b;
+	border-radius: 2px;
+
+	font-size: 20px;
+	color: #ffffff;
+	text-align: center;
+	line-height: 35px;
+
+	margin-right: 3px;
+	margin-bottom: 5px;
+}
+
+@media (max-width: 880px) {
+
+	.footer-distributed{
+		font: bold 14px sans-serif;
+	}
+
+	.footer-distributed .footer-left,
+	.footer-distributed .footer-center,
+	.footer-distributed .footer-right{
+		display: block;
+		width: 100%;
+		margin-bottom: 40px;
+		text-align: center;
+	}
+
+	.footer-distributed .footer-center i{
+		margin-left: 0;
+	}
+
+}
+</Style>
+
+</h:head>
+
+<h:body style="background-color: rgb(250, 250, 250)">
+
+	<h:panelGroup layout="block" rendered="#{ (!(loginBean.userType eq 'A' or loginBean.userType eq 'O') or loginBean.userType eq 'U')  }">
+		
+		<center>
+			<a href="../index.xhtml">Inicio</a>
+		</center>
+
+	</h:panelGroup>
+	
+	<h:panelGroup rendered="#{loginBean.userType eq 'O' or loginBean.userType eq 'A'}">
+	<h:panelGroup layout="block" rendered="#{loginBean.userType eq 'U'}"
+		style="border-color: rgb(0, 0, 0) rgb(0, 0, 0) rgb(0, 0, 0) rgb(0, 0, 0); background-color: rgb(250, 250, 250); border-radius: 0px">
+		<a href="../index.xhtml"><h:graphicImage library="resources" name="Logo.png"
+			style="height: 90px; width: 110px; position: relative; left: 50px;" /></a>
+
+		<div class="dropdown" style="left: 79%">
+			<button class="dropbtn">Usuarios <i class="fas fa-users"></i></button>
+			<div class="dropdown-content">
+
+				<a href="MiCuentaUsuario.xhtml?faces-redirect=true">Mi cuenta</a>  
+				<a href="CerrarSesion.xhtml?faces-redirect=true">Cerrar sesión</a>
+			</div>
+		</div>
+
+
+	</h:panelGroup>
+	
+	<h:panelGroup layout="block" rendered="#{loginBean.userType eq 'O' or loginBean.userType eq 'A'}"
+		style="border-color: rgb(0, 0, 0) rgb(0, 0, 0) rgb(0, 0, 0) rgb(0, 0, 0); background-color: rgb(250, 250, 250); border-radius: 0px">
+		
+		<a href="../index.xhtml"><h:graphicImage library="resources" name="Logo.png"
+			style="height: 90px; width: 110px; position: relative; left: 50px;" /></a>
+
+		<div class="dropdown" style="left: 77%">
+		
+			<button class="dropbtn">
+				<p:outputLabel rendered="#{loginBean.userType eq 'A'}" value="Administrador " ><i class="fas fa-user-cog"/></p:outputLabel>
+				<p:outputLabel rendered="#{loginBean.userType eq 'O'}" value="Owner " ><i class="fas fa-user-tie"/></p:outputLabel>
+			</button>
+			
+			<div class="dropdown-content">
+				<a href="../sesion/MiCuenta.xhtml?faces-redirect=true">Mi cuenta</a>  
+				<a href="../obras/ListaDeCompras.xhtml?faces-redirect=true">Mis compras</a>
+				<a href="ListaDeUsuarios.xhtml">Usuarios</a> 
+				<a href="ListaDeTransacciones.xhtml">Transacciones</a> 
+				<a href="ListaDeObras.xhtml">Obras</a> 
+				<a href="ListaDeExposiciones.xhtml">Exposiciones</a>	
+				<a href="ListaDeAuditoria.xhtml">Auditorías</a>	
+				<a href="../sesion/CerrarSesion.xhtml?faces-redirect=true">Cerrar sesión</a>
+			</div>
+			
+		</div>
+
+
+	</h:panelGroup>
+	
+	
+	<h:panelGroup layout="block" style="margin: 20px 0px 0px 0px">
+		<h:form>
+			<p:growl id="messages" showDetail="true" style="width: 200px"/>
+			<p:menubar>
+
+				<p:menuitem value="Inicio" url="../index.xhtml" />
+				<p:menuitem value="Obras" url="../obras/PaginaObras.xhtml" />
+				<p:menuitem value="Exposiciones" url="../obras/Exposicion.xhtml" />
+				<p:menuitem value="Información" url="../obras/Informacion.xhtml" />
+
+			</p:menubar>
+		</h:form>
+		</h:panelGroup>
+
+	
+<h:form id="form">
+	
+		<br/>
+		<strong><p:outputLabel value="Only page:"/></strong> <br/>
+		<h:commandLink>
+       		<p:graphicImage library="resources" name="Excel.png"
+					style="height: 80px; width: 90px" />
+        	<p:dataExporter pageOnly="true" type="xls" target="tabUsuarios" fileName="usuariosSophyArtXLS" postProcessor="#{documentosBean.postProcessXLS}" />
+   		 </h:commandLink>
+	
+		<h:commandLink>
+       		      		<p:graphicImage library="resources" name="PDF.png"
+					style="height: 80px; width: 90px" />
+        	<p:dataExporter pageOnly="true" type="pdf" target="tabUsuarios" fileName="usuariosSophyArt" preProcessor="#{documentosBean.preProcessPDFUsuarios}" />
+   		 </h:commandLink>
+   		 
+	
+		<p:dataTable value="#{usuarioBean.allUsuarios}" var="usuario" style="margin: 0.5em;" rowKey="#" rows="10"
+                 paginator="true" widgetVar="usuarioVar" id="tabUsuarios"
+                 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                 rowsPerPageTemplate="10,20">
+			
+			<p:column headerText="Id" filterBy="#{usuario.id}"
+				style="width:40px; text-align: center" > 
+				<h:outputText value="#{usuario.id}" />
+			</p:column>
+			
+			<p:column headerText="Nombre" style="width:120px; text-align: center" filterBy="#{usuario.fullName}">
+				<h:outputText value="#{usuario.fullName}" />
+			</p:column>
+			
+			<p:column headerText="Usuario" style="width:115px; text-align: center" filterBy="#{usuario.userName}">
+				<h:outputText value="#{usuario.userName}" />
+			</p:column>
+			
+			<p:column headerText="Correo electronico" style="width:200px; text-align: center" filterBy="#{usuario.emailAddress}">
+				<h:outputText value="#{usuario.emailAddress}" />
+			</p:column>
+			
+			<p:column headerText="Telefono" style="width:110px; text-align: center" filterBy="#{usuario.phoneNumber}">
+				<h:outputText value="#{usuario.phoneNumber}" />
+			</p:column>
+			
+			<p:column headerText="Fecha" style="width:100px; text-align: center" filterBy="#{usuario.dateLastPassword}">
+				<h:outputText value="#{usuario.dateLastPassword}" />
+			</p:column>
+			
+			<p:column headerText="Estado" style="width:100px; text-align: center" filterBy="#{usuario.active}">
+			<f:facet name="filter">
+				<p:selectOneMenu onchange="PF('usuarioVar').filter()" styleClass="custom-filter">>
+					<f:selectItem itemLabel=" " itemValue="#{null}" noSelectionOption="true" />
+                    <f:selectItem itemLabel="Activo" itemValue="A" />
+                    <f:selectItem itemLabel="Inactivo" itemValue="I" />
+				</p:selectOneMenu>
+			</f:facet>
+				<h:outputText value="Inactivo" rendered="#{usuario.active eq 'I' }" />	
+				<h:outputText value="Activo" rendered="#{usuario.active eq 'A'}" />	
+			</p:column>
+			
+			<p:column headerText="Tipo de ususario" style="width:150px; text-align: center" filterBy="#{usuario.userType}">
+			<f:facet name="filter">
+				<p:selectOneMenu onchange="PF('usuarioVar').filter()" styleClass="custom-filter">>
+					<f:selectItem itemLabel=" " itemValue="#{null}" noSelectionOption="true" />
+                    <f:selectItem itemLabel="Administrador" itemValue="A" />
+                    <f:selectItem itemLabel="Usuario" itemValue="U" />
+				</p:selectOneMenu>
+			</f:facet>
+				<h:outputText value="Usuario" rendered="#{'U' eq usuario.userType}" />		
+				<h:outputText value="Adminstrador" rendered="#{'A' eq usuario.userType}" />
+				<h:outputText value="Owner" rendered="#{'O' eq usuario.userType}"/>
+			</p:column>
+				
+			<p:column headerText="Acciones" style="width:150px; text-align: center" exportable="false">
+				<p:commandButton action="#{usuarioBean.prepararModificarUsuario()}" icon="fas fa-pencil-alt" style="width:70px; height: 45px" rendered="#{usuario.userType eq 'O' and loginBean.userType eq 'O'}"  />
+				<p:commandButton action="#{usuarioBean.prepararModificarUsuario()}" icon="fas fa-pencil-alt" style="width:70px; height: 45px" rendered="#{usuario.userType eq 'A' or usuario.userType eq 'U'}"  />
+				
+				<p:commandButton actionListener="#{usuarioBean.desactivarUsuario()}" action="#{auditoriaBean.agregarAuditoria()}"  ajax="false" icon="fas fa-times" style="width:70px; height: 45px" rendered="#{ ( usuario.userType eq 'U' or (usuario.userType eq 'A' and loginBean.userType eq 'O') ) and usuario.active eq 'A'}"  >
+					<f:param name="correoGmail" value="#{config.correoGmail}" />
+					<f:param name="claveGmail" value="#{config.claveGmail}" />
+					<f:param name="asuntoCorreo" value="#{config.asuntoUsuarioDesactivado}" />
+					<f:param name="mensajeCorreo" value="#{config.mensajeUsuarioDesactivado}" />
+					
+					<f:param name="idUsuario" value="#{loginBean.datosLogueados.id}" />
+					<f:param name="operationCrud" value="D" />
+					<f:param name="tableName" value="U" />
+					<f:param name="idModif" value="#{usuario.id}" />
+				</p:commandButton>
+				
+
+				<f:loadBundle basename="com.gsa.properties.configGmail" var="config" />
+				<p:commandButton actionListener="#{usuarioBean.activarUsuario()}" action="#{auditoriaBean.agregarAuditoria()}"  ajax="false" icon="fas fa-check" style="width:70px; height: 45px" rendered="#{ ( usuario.userType eq 'U' or (usuario.userType eq 'A' and loginBean.userType eq 'O') ) and usuario.active eq 'I'}"  >
+					<f:param name="idUsuario" value="#{loginBean.datosLogueados.id}" />
+					<f:param name="operationCrud" value="E" />
+					<f:param name="tableName" value="U" />
+					<f:param name="idModif" value="#{usuario.id}" />
+					
+					<f:param name="correoGmail" value="#{config.correoGmail}" />
+					<f:param name="claveGmail" value="#{config.claveGmail}" />
+					<f:param name="asuntoCorreo" value="#{config.asuntoUsuarioActivado}" />
+					<f:param name="mensajeCorreo" value="#{config.mensajeUsuarioActivado}" />
+				</p:commandButton>
+				
+				
+			
+			</p:column>
+		</p:dataTable>
+		
+		<strong><p:outputLabel value="All data:"/></strong> <br/>
+		<h:commandLink>
+       		<p:graphicImage library="resources" name="Excel.png"
+					style="height: 40px; width: 46px" />
+        	<p:dataExporter type="xls" target="tabUsuarios" fileName="usuariosSophyArtXLS" postProcessor="#{documentosBean.postProcessXLS}" />
+   		 </h:commandLink>
+
+		<h:commandLink>
+       		      		<p:graphicImage library="resources" name="PDF.png"
+					style="height: 40px; width: 46px" />
+        	<p:dataExporter type="pdf" target="tabUsuarios" fileName="usuariosSophyArt" preProcessor="#{documentosBean.preProcessPDFAuditoria}" />
+   		 </h:commandLink>
+		</h:form>
+		
+		<br/>
+		<center><h:form>
+          <p:commandButton id="registrarUsuario" value="Crear nuevo usuario" action="#{usuarioBean.prepararAgregarUsuarioAdministrador()}" />
+        </h:form></center>
+        
+        
+ 
+		
+		</h:panelGroup>
+
+	<footer class="footer-distributed">
+
+			<div class="footer-left">
+			
+			<h3>Sophy <span>Art</span></h3>
+			
+			</div>
+
+			<div class="footer-center">
+
+				<div>
+					<i class="fas fa-map-marker-alt"></i>
+					<p><span>No 131 A, Carrera 9 # 131 A 2</span>Bogotá D.C.</p>
+				</div>
+
+				<div>
+					<i class="far fa-envelope"></i>
+					<p><a href="mailto:gsapresidente@gmail.com">gsapresidente@gmail.com</a></p>
+				</div>
+
+			</div>
+
+			<div class="footer-right">
+
+				<p class="footer-company-about">
+					<span>Sophy Art</span>
+				</p>
+
+				<div class="footer-icons">
+
+					<a href="https://www.facebook.com/Sophy-Art-2406743689555018/?modal=admin_todo_tour"><i class="fab fa-facebook-f"></i></a>
+					<a href="#"><i class="fab fa-twitter"></i></a>
+					<a href="https://www.instagram.com/galeriasophyart/?hl=es-la"><i class="fab fa-instagram"></i></a>
+
+				</div>
+
+			</div>
+
+		</footer>
+
+</h:body>
+</html>

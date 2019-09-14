@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+		<title>Registro usuario</title>
+	
+<link rel="stylesheet"
+		href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+		integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+		crossorigin="anonymous" />
+
+</h:head>
+
+<h:body style="background-color: rgb(250, 250, 250)">
+
+	<h:panelGroup rendered="#{loginBean.userType eq 'O' or loginBean.userType eq 'A' or loginBean.userType eq 'U'}">
+		<center>
+			<a href="../index.xhtml">Inicio</a>
+		</center>
+	</h:panelGroup>
+
+
+	<h:panelGroup rendered="#{!(loginBean.userType eq 'O' or loginBean.userType eq 'A' or loginBean.userType eq 'U')}">
+	<f:metadata>
+		<f:viewAction action="#{usuarioBean.limpiarUsuario()}"/>
+	</f:metadata>
+
+	<h:panelGroup layout="block"
+		style="border-color: rgb(0, 0, 0) rgb(0, 0, 0) rgb(0, 0, 0) rgb(0, 0, 0); background-color: rgb(250, 250, 250); border-radius: 0px">
+		<a href="../index.xhtml"><h:graphicImage library="resources" name="Logo.png"
+			style="height: 90px; width: 110px; position: relative; left: 50px;" /></a>
+	</h:panelGroup>
+
+	<h:panelGroup layout="block" style="margin: 20px 0px 0px 0px">
+		</h:panelGroup>
+  <h:form style="padding-top: 70px" onsubmit="return valida_envia(this)">
+  
+  	<p:growl life="5000" showDetail="true"/>
+    <center>
+    <p:panel header="Registro de usuario" style="width:500px">
+      <h:panelGrid columns="2" cellpadding="6">
+        <h:outputLabel for="username" value="Usuario" />
+        <p:inputText requiredMessage="Ingrese el usuario"
+		validatorMessage="Longitud de entre 1 y 8 caracteres. Solo números o letras. No carácteres especiales." placeholder="" value="#{usuarioBean.usuario.userName}" id="username" required="true" label="username" >
+        <f:validateRegex pattern="^([a-zA-Z0-9]){1,8}$"></f:validateRegex>
+        <p:message for="username"/>
+        </p:inputText>
+        <h:outputLabel for="nombre" value="Nombre completo" />
+        <p:inputText requiredMessage="Ingrese el nombre completo"
+		validatorMessage="Solo letras. No espacio inicial." placeholder="" value="#{usuarioBean.usuario.fullName}" id="nombre" required="true" label="nombre" >
+        <f:validateRegex pattern="^[áéíóúÁÉÍÓÚñÑa-zA-Z][áéíóúÁÉÍÓÚñÑa-zA-Z ]*$"/>
+        <p:message for="nombre"/>
+        </p:inputText>
+        
+        <h:outputLabel for="correo" value="Correo electronico" />
+        <p:inputText requiredMessage="Ingrese el correo electrónico"
+		validatorMessage="Letras minúscula, mayúscula, números o (+ - /). No carácteres especiales." placeholder="" value="#{usuarioBean.usuario.emailAddress}" id="correo" required="true" label="correo" >
+        <f:validateRegex pattern="^[_A-Za-z0-9-/+]+(\.[_A-Za-z0-9]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$"/>
+        <p:message for="correo"/>
+        </p:inputText>
+        <h:outputLabel for="telefono" value="Telefono" />
+        <p:inputText requiredMessage="Ingrese número celular"
+		validatorMessage="Longitud de 10 carácteres. Solo números. No letras ni carácteres especiales. " value="#{usuarioBean.usuario.phoneNumber}" placeholder="" id="telefono" required="true" label="telefono" >
+        <f:validateRegex pattern="^3[0-9]{9,9}$"/>
+        <p:message for="telefono"/>
+        </p:inputText>
+        <f:facet name="footer">
+        <center>
+        
+        <f:loadBundle basename="com.gsa.properties.configGmail" var="config" />
+         <p:commandButton id="ingresarUsuario" value="Registrar" ajax="false" action="#{usuarioBean.registroNuevoUsuario()}" actionListener="#{auditoriaBean.agregarAuditoria()}" >
+			<f:param name="correoGmail" value="#{config.correoGmail}" />
+			<f:param name="claveGmail" value="#{config.claveGmail}" />
+			<f:param name="asuntoCorreo" value="#{config.asuntoCorreo}" />
+			<f:param name="mensajeCorreo" value="#{config.mensajeCorreo}" />
+			
+         	<f:param name="idUsuario" value="#{usuarioBean.usuarioAgregar()}" />
+			<f:param name="operationCrud" value="R" />
+			<f:param name="tableName" value="U" />
+			<f:param name="idModif" value="#{usuarioBean.usuarioAgregar()}" />
+          </p:commandButton>
+          
+        </center>
+        </f:facet>
+      </h:panelGrid>
+	    </p:panel>
+	    </center>
+	  </h:form> 
+	  </h:panelGroup>
+</h:body>
+</html>

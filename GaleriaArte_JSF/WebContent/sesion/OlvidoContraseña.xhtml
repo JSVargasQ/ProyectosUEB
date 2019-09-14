@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Olvidé mi contraseña</title>
+</h:head>
+<h:body>
+
+	<h:panelGroup rendered="#{loginBean.userType eq 'O' or loginBean.userType eq 'A' or loginBean.userType eq 'U'}">
+		<center>
+			<a href="../index.xhtml">Inicio</a>
+		</center>
+	</h:panelGroup>
+
+
+	<h:panelGroup rendered="#{!(loginBean.userType eq 'O' or loginBean.userType eq 'A' or loginBean.userType eq 'U')}">
+	<a href="../index.xhtml"><h:graphicImage library="resources" name="Logo.png"
+			style="height: 90px; width: 110px; position: relative; left: 50px;" /></a>
+
+
+	
+<center>
+  <h:form style="padding-top: 100px">
+  
+  	<f:metadata>
+		<f:viewAction action="#{usuarioBean.limpiarUsuario()}"/>
+	</f:metadata>
+  	
+    <p:panel header="Olvidé mi contraseña" style="width:340px">
+      <h:panelGrid columns="2" cellpadding="5">
+        <h:outputLabel for="correo" value="Correo" />
+       
+        <p:inputText requiredMessage="Ingrese su correo"
+		validatorMessage="Ingrese un correo válido." value="#{usuarioBean.usuario.emailAddress}" id="correo" required="true" label="correo" >
+        <p:message for="correo"/>
+        </p:inputText>
+        
+        <h:outputLabel for="usuario" value="Usuario" />
+        
+        <p:inputText requiredMessage="Ingrese su usuario"
+		validatorMessage="Ingrese un usuario correcto." value="#{usuarioBean.usuario.userName}" id="usuario" required="true" label="usuario" >
+        <p:message for="usuario"/>
+        </p:inputText>
+        <f:facet name="footer">
+        <center>
+        
+        <p:growl showDetail="true" life="10000" />
+        <br/>
+        	<f:loadBundle basename="com.gsa.properties.configGmail" var="config" />
+         	<p:commandButton id="olvidoContraseña" value="Recuperar mi contraseña" action = "#{usuarioBean.olvidoContraseña()}" ajax="false">
+          		<f:param name="correoGmail" value="#{config.correoGmail}" />
+				<f:param name="claveGmail" value="#{config.claveGmail}" />
+				<f:param name="asuntoCorreo" value="#{config.asuntoOlvidoContraseña}" />
+				<f:param name="mensajeCorreo" value="#{config.mensajeOlvidoContraseña}" />
+         	</p:commandButton>
+         	
+          
+          
+          
+        </center>
+        </f:facet>
+        
+        
+        
+        
+      </h:panelGrid>
+    </p:panel>
+   
+  </h:form>
+  </center>
+  </h:panelGroup>
+ 
+</h:body>
+</html>

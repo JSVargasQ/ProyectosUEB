@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Login</title>
+</h:head>
+<h:body>
+
+
+
+	<h:panelGroup rendered="#{loginBean.userType eq 'O' or loginBean.userType eq 'A' or loginBean.userType eq 'U'}">
+		<center>
+			<a href="../index.xhtml">Inicio</a>
+		</center>
+	</h:panelGroup>
+
+
+	<h:panelGroup rendered="#{!(loginBean.userType eq 'O' or loginBean.userType eq 'A' or loginBean.userType eq 'U')}">
+	
+		<a href="../index.xhtml"><h:graphicImage library="resources" name="Logo.png"
+				style="height: 90px; width: 110px; position: relative; left: 50px;" /></a>
+	
+	  	<center><h:form style="padding-top: 100px">
+	  	
+		    <p:panel header="Ingreso de usuario" style="width:360px">
+			    <h:panelGrid columns="2" cellpadding="5">
+			    
+				    <h:outputLabel for="username" value="Usuario" />
+				       
+				    <p:inputText requiredMessage="Ingrese su nombre de usuario." required="true"
+					validatorMessage="Verifique su usuario." value="#{loginBean.userName}" id="username" label="username" />
+				
+				        
+				    <h:outputLabel for="password" value="Clave" />
+				        
+				    <p:password requiredMessage="Ingrese una contraseña." required="true"
+					validatorMessage="Verifique su clave." value="#{loginBean.password}" id="password" label="password" />
+						
+				    <f:facet name="footer">
+				   
+					    <center>
+					    <p:growl showDetail="true" life="10000" />
+					    
+					    <br></br>
+					    
+					    <p:captcha label="Captcha" requiredMessage="Captcha invalido."/>
+					    <br></br>
+					    
+					    <f:loadBundle basename="com.gsa.properties.configGmail" var="config" />
+					    <p:commandButton id="ingresarUsuario" value="Ingresar" action = "#{loginBean.verifica()}" ajax="false">
+					    
+							<f:param name="correoGmail" value="#{config.correoGmail}" />
+							<f:param name="claveGmail" value="#{config.claveGmail}" />
+							<f:param name="asuntoCorreo" value="#{config.asuntoUsuarioDesactivado}" />
+							<f:param name="mensajeCorreo" value="#{config.mensajeUsuarioDesactivado}" />
+							
+					    </p:commandButton>
+					    </center>            
+					
+				    </f:facet>
+				        
+			    </h:panelGrid>
+			    <br></br>
+			    
+			    <a href="OlvidoContraseña.xhtml?faces-redirect=true">¿Olvidaste tu contraseña?</a>
+			    
+		    </p:panel>
+	    
+	    </h:form></center>
+ 	</h:panelGroup>
+ 
+</h:body>
+</html>
