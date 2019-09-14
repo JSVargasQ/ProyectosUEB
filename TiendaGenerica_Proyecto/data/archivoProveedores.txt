@@ -1,0 +1,6 @@
+1234;Sebastian;Clase A;1234;bogota;direccion
+65465;bfhjadsg;Clase B;56465465;mdghnhkjshdg;5645465
+12345;Ayala;Clase C;1234;Bogota;1235
+1236;gjshdl;Clase B;5346;etjowg;6546
+654;Vago;Clase B;654;654;654
+687;345;Clase A;6786;htdhd;hdgf
