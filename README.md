@@ -1,1 +1,1 @@
-Proyectos realizados a lo largo de mi vida universitaria en la universidad El Bosque.
+Proyectos finales realizados a través del pregrado Ingeniería de sistemas en la Universidad El Bosque. Estos son resultados de asignaturas como son Fundamentos de programación (Triqui en JAVA), Programación 1 (Tienda parametrizable en Java con interfaz gráfica) y Programación 2 (Aplicación Web en JSF para una galería de arte).
